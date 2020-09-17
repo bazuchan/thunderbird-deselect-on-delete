@@ -1,0 +1,12 @@
+[
+  {
+    "namespace": "deselect",
+    "functions": [
+      {
+        "name": "init",
+        "type": "function",
+        "parameters": []
+      }
+    ]
+  }
+]

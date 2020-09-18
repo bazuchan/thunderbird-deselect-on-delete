@@ -71,7 +71,7 @@ function isWindowRelevant(win) {
 
 function setupWindow(win) {
   let doSetup = (win) => {
-    if (isWindowRelevant(win)) {
+    if (isWindowRelevant(win) && !deletionListeners.has(win)) {
       let listener = new DeletionListener(win);
       deletionListeners.set(win, listener);
       win.FolderDisplayListenerManager.registerListener(listener);
@@ -94,5 +94,6 @@ function cleanupWindow(win) {
 
   let listener = deletionListeners.get(win);
   win.FolderDisplayListenerManager.unregisterListener(listener);
+  deletionListeners.delete(win);
 }
 
